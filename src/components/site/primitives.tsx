@@ -41,10 +41,10 @@ export function CtaLink({ href, children, variant = "primary", className }: CtaP
   );
 }
 
+import logoWhite from "@/assets/innomaker-logo-white.png.asset.json";
+import logoColor from "@/assets/innomaker-logo-color.png.asset.json";
+
 export function Wordmark({ tone = "light" }: { tone?: "light" | "dark" }) {
-  return (
-    <span className={cn("font-display text-xl font-extrabold tracking-tight", tone === "dark" ? "text-on-graphite" : "text-foreground")}>
-      inno<span className="text-primary">maker</span>
-    </span>
-  );
+  const logo = tone === "dark" ? logoWhite : logoColor;
+  return <img src={logo.url} alt="Innomaker — Criando Inovações" className="h-9 w-auto" />;
 }
