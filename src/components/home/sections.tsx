@@ -1,7 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import integrationImg from "@/assets/integration.jpg";
-import { partners, services, WHATSAPP_URL } from "@/content/site";
+import parceiros1 from "@/assets/parceiros-1.png.asset.json";
+import parceiros2 from "@/assets/parceiros-2.png.asset.json";
+import { services, WHATSAPP_URL } from "@/content/site";
 import { Container, CtaLink, Eyebrow } from "@/components/site/primitives";
 
 export function Hero() {
