@@ -1,7 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import integrationImg from "@/assets/integration.jpg";
-import { partners, services, WHATSAPP_URL } from "@/content/site";
+import parceiros1 from "@/assets/parceiros-1.png.asset.json";
+import parceiros2 from "@/assets/parceiros-2.png.asset.json";
+import { services, WHATSAPP_URL } from "@/content/site";
 import { Container, CtaLink, Eyebrow } from "@/components/site/primitives";
 
 export function Hero() {
@@ -112,7 +114,6 @@ export function Integration() {
 }
 
 export function Partners() {
-  const slots = partners.length ? partners : Array.from({ length: 6 }, () => null);
   return (
     <section className="bg-background">
       <Container className="py-24 lg:py-28">
@@ -120,18 +121,9 @@ export function Partners() {
           <Eyebrow index="03" className="text-muted-foreground lg:col-span-4">Parceiros</Eyebrow>
           <h2 className="text-4xl font-bold uppercase leading-none sm:text-5xl lg:col-span-8">Parceiros que confiam</h2>
         </div>
-        <div className="mt-14 grid grid-cols-2 border-l border-t border-border sm:grid-cols-3 lg:grid-cols-6">
-          {slots.map((p, i) => (
-            <div key={p?.name ?? i} className="flex aspect-[3/2] items-center justify-center border-b border-r border-border p-6">
-              {p?.logoUrl ? (
-                <img src={p.logoUrl} alt={p.name} loading="lazy" className="max-h-12 w-auto opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0" />
-              ) : p ? (
-                <span className="font-display text-sm font-semibold text-muted-foreground">{p.name}</span>
-              ) : (
-                <span className="eyebrow text-muted-foreground/60">Logo {String(i + 1).padStart(2, "0")}</span>
-              )}
-            </div>
-          ))}
+        <div className="mt-14 space-y-10 border-t border-border pt-12">
+          <img src={parceiros1.url} alt="Parceiros Innomaker: Estaleiro Mauá, Friends Lab, Prefeitura de Niterói, dotBot, Prefeitura de Maricá, Shell StartUp Engine, CESS, UFF e CEDAE" loading="lazy" className="mx-auto w-full max-w-5xl" />
+          <img src={parceiros2.url} alt="Parceiros Innomaker: NIT EE, GSCAR COPPE/UFRJ, Laboratório MídiaCom, Instituto de Computação UFF, NVIDIA Inception Program, Cluster Tecnológico Naval RJ, SEBRAE e TEE" loading="lazy" className="mx-auto w-full max-w-5xl" />
         </div>
       </Container>
     </section>
