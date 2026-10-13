@@ -1,39 +1,31 @@
 import { ArrowUpRight } from "lucide-react";
-import heroImg from "@/assets/hero.jpg";
-import integrationImg from "@/assets/integration.jpg";
-import parceiros1 from "@/assets/parceiros-1.png.asset.json";
-import parceiros2 from "@/assets/parceiros-2.png.asset.json";
-import { services, WHATSAPP_URL } from "@/content/site";
+import { featuredPartners, images, partners, services, WHATSAPP_URL } from "@/content/site";
 import { Container, CtaLink, Eyebrow } from "@/components/site/primitives";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-graphite text-on-graphite">
       <div className="tech-grid pointer-events-none absolute inset-0 opacity-60" />
-      <Container className="relative grid min-h-[100svh] grid-cols-1 items-end gap-10 pb-16 pt-32 lg:grid-cols-12 lg:pb-24">
-        <div className="relative z-10 lg:col-span-7">
+      <Container className="relative grid grid-cols-1 items-center gap-10 pb-16 pt-28 lg:min-h-[100svh] lg:grid-cols-12 lg:pb-20 lg:pt-32">
+        <div className="relative z-10 lg:col-span-6">
           <Eyebrow index="IM/26" className="animate-rise text-on-graphite-muted">
             Engenharia · Processos · Tecnologia
           </Eyebrow>
-          <h1 className="animate-rise mt-8 text-[clamp(2.75rem,8vw,7.5rem)] font-extrabold uppercase leading-[0.9]" style={{ animationDelay: "120ms" }}>
-            Desafios
+          <h1 className="animate-rise mt-8 text-[clamp(2.25rem,5.2vw,4.75rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.025em]" style={{ animationDelay: "120ms" }}>
+            Desafios complexos.
             <br />
-            complexos.
-            <br />
-            <span className="text-primary">Soluções</span>
-            <br />
-            sob medida.
+            <span className="text-primary">Soluções</span> sob medida.
           </h1>
           <div className="animate-rise mt-10 grid gap-8 border-t border-line-dark pt-8 sm:grid-cols-[1fr_auto] sm:items-end" style={{ animationDelay: "260ms" }}>
-            <p className="max-w-md text-lg leading-relaxed text-on-graphite-muted">
+            <p className="max-w-md text-base leading-relaxed sm:text-lg text-on-graphite-muted">
               Integramos <strong className="font-medium text-on-graphite">engenharia, processos e tecnologia</strong> para desenvolver soluções de acordo com as necessidades de cada projeto.
             </p>
             <CtaLink href="https://innomaker.com.br/servicos-2026/">Conheça nossos serviços</CtaLink>
           </div>
         </div>
-        <div className="relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[44%]">
-          <div className="relative h-[60vh] overflow-hidden lg:h-full">
-            <img src={heroImg} alt="Braço robótico em célula de automação industrial" width={1280} height={1600} className="h-full w-full object-cover" />
+        <div className="relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[46%]">
+          <div className="relative h-[50vh] overflow-hidden sm:h-[60vh] lg:h-full">
+            <img src={images.hero} alt="Braço robótico em célula de automação industrial" width={1280} height={1600} className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/30 to-transparent" />
             <div className="animate-scan absolute inset-x-0 top-0 h-px bg-primary/60" />
           </div>
@@ -91,7 +83,7 @@ export function Integration() {
       <div className="tech-grid-light pointer-events-none absolute inset-0" />
       <Container className="relative grid gap-12 py-24 lg:grid-cols-12 lg:py-32">
         <div className="relative lg:col-span-7">
-          <img src={integrationImg} alt="Engenheiros analisando projeto mecânico em CAD ao lado de protótipo usinado" width={1440} height={1024} loading="lazy" className="aspect-[4/3] w-full object-cover grayscale-[30%]" />
+          <img src={images.integration} alt="Peça mecânica usinada em alumínio ao lado do seu modelo 3D em CAD" width={1440} height={1024} loading="lazy" className="aspect-[4/3] w-full object-cover grayscale-[30%]" />
           <div className="absolute -bottom-6 left-6 bg-graphite px-6 py-5 text-on-graphite sm:left-10">
             <p className="eyebrow text-primary">Engenharia + Processos + Tecnologia</p>
           </div>
@@ -116,15 +108,25 @@ export function Integration() {
 export function Partners() {
   return (
     <section className="bg-background">
-      <Container className="py-24 lg:py-28">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-          <Eyebrow index="03" className="text-muted-foreground lg:col-span-4">Parceiros</Eyebrow>
-          <h2 className="text-4xl font-bold uppercase leading-none sm:text-5xl lg:col-span-8">Parceiros que confiam</h2>
+      <Container className="py-20 lg:py-28">
+        <div className="flex flex-col items-center text-center">
+          <Eyebrow index="03" className="text-muted-foreground">Parceiros</Eyebrow>
+          <h2 className="mt-6 text-3xl font-bold uppercase leading-none sm:text-5xl">Parceiros que confiam</h2>
         </div>
-        <div className="mt-14 space-y-10 border-t border-border pt-12">
-          <img src={parceiros1.url} alt="Parceiros Innomaker: Estaleiro Mauá, Friends Lab, Prefeitura de Niterói, dotBot, Prefeitura de Maricá, Shell StartUp Engine, CESS, UFF e CEDAE" loading="lazy" className="mx-auto w-full max-w-5xl" />
-          <img src={parceiros2.url} alt="Parceiros Innomaker: NIT EE, GSCAR COPPE/UFRJ, Laboratório MídiaCom, Instituto de Computação UFF, NVIDIA Inception Program, Cluster Tecnológico Naval RJ, SEBRAE e TEE" loading="lazy" className="mx-auto w-full max-w-5xl" />
-        </div>
+        <ul className="mt-14 grid grid-cols-1 border-y border-border sm:grid-cols-3">
+          {featuredPartners.map((p) => (
+            <li key={p.name} className="flex h-32 items-center justify-center border-border px-8 not-last:border-b sm:h-40 sm:not-last:border-b-0 sm:not-last:border-r">
+              <img src={p.logoUrl} alt={p.name} loading="lazy" className="max-h-16 max-w-[220px] w-auto object-contain sm:max-h-20" />
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-7">
+          {partners.map((p) => (
+            <li key={p.name} className="flex h-14 items-center justify-center">
+              <img src={p.logoUrl} alt={p.name} loading="lazy" className="max-h-12 max-w-[130px] w-auto object-contain" />
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );
