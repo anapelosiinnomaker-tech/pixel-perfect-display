@@ -56,7 +56,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Fale com a Innomaker pelo WhatsApp"
-      className="fixed bottom-24 right-4 z-[2147483647] block h-12 w-12 drop-shadow-lg transition-transform duration-300 hover:scale-105 sm:bottom-28 sm:right-6 sm:h-14 sm:w-14"
+      className="fixed bottom-4 right-4 z-[2147483647] block h-12 w-12 drop-shadow-lg transition-transform duration-300 hover:scale-105 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
     >
       <img src={images.whatsappIcon} alt="" width={56} height={56} className="h-full w-full object-contain" />
     </a>
