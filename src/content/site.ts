@@ -48,5 +48,36 @@ export const services: ServiceArea[] = [
   },
 ];
 
-/** Fill with real partners (from CMS). Empty slots render as neutral placeholders. */
-export const partners: Partner[] = [];
+const p = (name: string, file: string): Partner => ({ name, logoUrl: `/images/parceiros/${file}.png` });
+
+/** Destaque (ordem de prioridade): Estaleiro Mauá, NVIDIA, Shell. */
+export const featuredPartners: Partner[] = [
+  p("Estaleiro Mauá", "estaleiro-maua"),
+  p("NVIDIA Inception Program", "nvidia"),
+  p("Shell StartUp Engine", "shell"),
+];
+
+export const partners: Partner[] = [
+  p("UFF — Universidade Federal Fluminense", "uff"),
+  p("Instituto de Computação UFF", "ic-uff"),
+  p("GSCAR COPPE/UFRJ", "gscar"),
+  p("Laboratório MídiaCom", "midiacom"),
+  p("NIT EE", "nit-ee"),
+  p("TEE", "tee"),
+  p("Cluster Tecnológico Naval RJ", "cluster-naval"),
+  p("SEBRAE", "sebrae"),
+  p("Prefeitura de Niterói", "niteroi"),
+  p("Prefeitura de Maricá", "marica"),
+  p("CEDAE", "cedae"),
+  p("CESS", "cess"),
+  p("dotBot", "dotbot"),
+  p("friends lab", "friends-lab"),
+];
+
+export const images = {
+  hero: "/images/hero.jpg",
+  integration: "/images/integracao-engenharia.jpg",
+  logoColor: "/images/innomaker-logo-color.png",
+  logoWhite: "/images/innomaker-logo-white.png",
+  whatsappIcon: "/images/whatsapp.png",
+};

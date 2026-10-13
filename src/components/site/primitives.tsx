@@ -41,10 +41,24 @@ export function CtaLink({ href, children, variant = "primary", className }: CtaP
   );
 }
 
-import logoWhite from "@/assets/innomaker-logo-white.png.asset.json";
-import logoColor from "@/assets/innomaker-logo-color.png.asset.json";
+import { images, WHATSAPP_URL } from "@/content/site";
 
 export function Wordmark({ tone = "light" }: { tone?: "light" | "dark" }) {
-  const logo = tone === "dark" ? logoWhite : logoColor;
-  return <img src={logo.url} alt="Innomaker — Criando Inovações" className="h-9 w-auto" />;
+  const src = tone === "dark" ? images.logoWhite : images.logoColor;
+  return <img src={src} alt="Innomaker — Criando Inovações" className="h-8 w-auto sm:h-9" />;
+}
+
+/** Botão global do WhatsApp — renderizado uma única vez em __root. */
+export function WhatsAppFloat() {
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Fale com a Innomaker pelo WhatsApp"
+      className="fixed bottom-24 right-4 z-[2147483647] block h-12 w-12 drop-shadow-lg transition-transform duration-300 hover:scale-105 sm:bottom-28 sm:right-6 sm:h-14 sm:w-14"
+    >
+      <img src={images.whatsappIcon} alt="" width={56} height={56} className="h-full w-full object-contain" />
+    </a>
+  );
 }
