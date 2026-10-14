@@ -41,33 +41,31 @@ function Introduction() {
   return (
     <section aria-labelledby="sobre-title" className="relative overflow-hidden bg-graphite text-on-graphite">
       <div aria-hidden="true" className="tech-grid pointer-events-none absolute inset-0 opacity-40" />
-      <Container className="relative pb-12 pt-32 sm:pt-36 lg:pb-16 lg:pt-44">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
-          <div className="lg:col-span-7">
+      <Container className="relative pb-16 pt-32 sm:pt-36 lg:pb-20 lg:pt-40">
+        <div className="grid gap-10 md:grid-cols-12 md:items-center lg:gap-16">
+          <div className="md:col-span-7">
             <p className="mb-6 text-sm text-on-graphite-muted">Sobre a Innomaker</p>
             <h1 id="sobre-title" className="animate-rise max-w-3xl text-[clamp(2.25rem,4.8vw,4.25rem)] font-extrabold uppercase leading-[1.02]">
               Tecnologia que <span className="text-primary">nasceu da prática.</span>
             </h1>
-          </div>
-          <div className="lg:col-span-5 lg:pb-1">
-            <p className="max-w-lg text-base leading-relaxed text-on-graphite-muted">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-on-graphite-muted sm:text-lg">
               E se transforma em soluções que geram impacto real.
             </p>
             <a href="#trajetoria" className="mt-6 inline-flex border-b border-primary pb-1 text-sm font-medium transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
               Conheça nossa trajetória <span aria-hidden="true" className="ml-4">↓</span>
             </a>
           </div>
+          <figure className="mx-auto w-full max-w-[440px] md:col-span-5 md:justify-self-end">
+            <img src={about.images.field} alt="Innoboat navegando em frente ao Museu de Arte Contemporânea de Niterói" width={1441} height={1442} fetchPriority="high" className="aspect-[4/3] w-full object-cover object-[center_70%]" />
+            <figcaption className="mt-4 space-y-1 border-l-2 border-primary pl-3 text-xs leading-relaxed text-on-graphite-muted">
+              <span className="block">Innoboat em campo · Niterói, RJ</span>
+              <span className="block">Engenharia aplicada a desafios reais.</span>
+            </figcaption>
+          </figure>
         </div>
-        <figure className="mt-12 lg:mt-16">
-          <img src={about.images.field} alt="Innoboat navegando em frente ao Museu de Arte Contemporânea de Niterói" width={1441} height={1442} fetchPriority="high" className="aspect-[4/3] w-full object-cover object-[center_65%] sm:aspect-[16/9] lg:aspect-[21/9]" />
-          <figcaption className="mt-4 flex flex-wrap justify-between gap-x-6 gap-y-2 text-xs leading-relaxed text-on-graphite-muted">
-            <span>Innoboat em campo · Niterói, RJ</span>
-            <span>Engenharia aplicada a desafios reais.</span>
-          </figcaption>
-        </figure>
-        <div className="mt-10 grid gap-6 border-t border-line-dark pt-8 lg:grid-cols-12 lg:gap-12">
-          <p className="text-sm text-on-graphite-muted lg:col-span-4">Uma extensão da sua engenharia e do seu P&amp;D.</p>
-          <p className="max-w-3xl text-base leading-relaxed sm:text-lg lg:col-span-8">{about.introduction}</p>
+        <div className="mt-14 grid gap-6 border-t border-line-dark pt-10 sm:mt-16 md:grid-cols-12 md:gap-10 lg:mt-20 lg:pt-12">
+          <h2 className="max-w-lg text-2xl font-bold uppercase leading-[1.15] sm:text-3xl md:col-span-5 lg:text-4xl">Uma extensão da sua engenharia e do seu <span className="text-primary">P&amp;D.</span></h2>
+          <p className="max-w-2xl text-base leading-relaxed text-on-graphite-muted sm:text-lg md:col-span-7 lg:text-xl">{about.introduction}</p>
         </div>
       </Container>
     </section>
@@ -103,21 +101,27 @@ function Trajectory() {
 
 function Approach() {
   return (
-    <section aria-labelledby="abordagem-title" className="bg-secondary">
-      <Container className="py-20 lg:py-24">
-        <div className="grid gap-6 lg:grid-cols-12 lg:gap-12">
-          <h2 id="abordagem-title" className="text-3xl font-bold uppercase leading-[1.08] sm:text-4xl lg:col-span-5">Como encaramos<br />cada desafio.</h2>
-          <p className="max-w-xl text-base leading-relaxed text-muted-foreground lg:col-span-7 lg:self-end">Engenharia, processos e tecnologia integrados para desenvolver soluções de acordo com as necessidades de cada projeto.</p>
+    <section aria-labelledby="abordagem-title" className="bg-graphite text-on-graphite">
+      <Container className="grid gap-10 py-20 lg:grid-cols-12 lg:gap-16 lg:py-24">
+        <div className="lg:col-span-5">
+          <h2 id="abordagem-title" className="text-3xl font-bold uppercase leading-[1.08] sm:text-4xl">Como encaramos<br />cada <span className="text-primary">desafio.</span></h2>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-on-graphite-muted">Engenharia, processos e tecnologia integrados para desenvolver soluções de acordo com as necessidades de cada projeto.</p>
+          <CtaLink href="/servicos" variant="outline-dark" className="mt-8">Conheça nossos serviços</CtaLink>
         </div>
-        <div className="mt-10 grid border-t border-foreground md:grid-cols-3 lg:mt-14">
+        <div className="border-t border-primary lg:col-span-7">
           {about.approach.map((item) => (
-            <div key={item.title} className="border-b border-border py-8 md:border-b-0 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
-              <h3 className="text-lg font-semibold uppercase">{item.title}</h3>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-            </div>
+            <details key={item.title} open className="group border-b border-line-dark px-1 transition-colors duration-200 hover:border-primary/60 hover:bg-on-graphite/5 focus-within:border-primary motion-reduce:transition-none">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-semibold uppercase transition-colors duration-200 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none [&::-webkit-details-marker]:hidden">
+                <h3 className="text-lg font-semibold uppercase sm:text-xl">{item.title}</h3>
+                <span aria-hidden="true" className="relative h-4 w-4 shrink-0 text-primary">
+                  <span className="absolute left-0 top-1/2 h-px w-4 bg-current" />
+                  <span className="absolute left-1/2 top-0 h-4 w-px bg-current group-open:hidden" />
+                </span>
+              </summary>
+              <p className="max-w-xl pb-6 pr-6 text-base leading-relaxed text-on-graphite-muted">{item.description}</p>
+            </details>
           ))}
         </div>
-        <div className="mt-8"><CtaLink href="/servicos" variant="outline-light">Conheça nossos serviços</CtaLink></div>
       </Container>
     </section>
   );
@@ -147,22 +151,24 @@ function Founder() {
 function Partners() {
   return (
     <section aria-labelledby="parceiros-title" className="bg-background">
-      <Container className="border-t border-border pb-20 pt-12 lg:pb-24">
-        <h2 id="parceiros-title" className="text-2xl font-bold uppercase sm:text-3xl">Parceiros que confiam.</h2>
-        <ul className="mt-8 grid grid-cols-1 border-y border-border sm:grid-cols-3">
-          {featuredPartners.map((partner) => (
-            <li key={partner.name} className="flex h-32 items-center justify-center border-border px-6 not-last:border-b sm:not-last:border-b-0 sm:not-last:border-r">
-              <img src={partner.logoUrl} alt={partner.name} loading="lazy" className="h-16 w-full max-w-[200px] object-contain" />
-            </li>
-          ))}
-        </ul>
-        <ul className="mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-4 lg:grid-cols-7">
-          {partners.map((partner) => (
-            <li key={partner.name} className="flex h-14 min-w-0 items-center justify-center">
-              <img src={partner.logoUrl} alt={partner.name} loading="lazy" className="max-h-12 w-auto max-w-full object-contain" />
-            </li>
-          ))}
-        </ul>
+      <Container className="pb-20 lg:pb-24">
+        <div className="border-t border-border pt-12">
+          <h2 id="parceiros-title" className="text-center text-2xl font-bold uppercase sm:text-3xl">Parceiros que confiam</h2>
+          <ul className="mt-8 grid grid-cols-1 border-y border-border sm:grid-cols-3">
+            {featuredPartners.map((partner) => (
+              <li key={partner.name} className="flex h-32 items-center justify-center border-border px-6 not-last:border-b sm:not-last:border-b-0 sm:not-last:border-r">
+                <img src={partner.logoUrl} alt={partner.name} loading="lazy" className="h-16 w-full max-w-[200px] object-contain" />
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-4 lg:grid-cols-7">
+            {partners.map((partner) => (
+              <li key={partner.name} className="flex h-14 min-w-0 items-center justify-center">
+                <img src={partner.logoUrl} alt={partner.name} loading="lazy" className="max-h-12 w-auto max-w-full object-contain" />
+              </li>
+            ))}
+          </ul>
+          </div>
       </Container>
     </section>
   );
