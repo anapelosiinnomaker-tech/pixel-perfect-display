@@ -17,7 +17,6 @@ export function SiteFooter() {
       </Container>
       <Container className="flex flex-col justify-between gap-2 border-t border-line-dark py-6 text-xs text-on-graphite-muted sm:flex-row">
         <span>© {new Date().getFullYear()} Innomaker. Todos os direitos reservados.</span>
-        <span className="eyebrow">Engenharia · Processos · Tecnologia</span>
       </Container>
     </footer>
   );
