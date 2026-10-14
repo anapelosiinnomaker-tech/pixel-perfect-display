@@ -19,7 +19,7 @@ export function Eyebrow({ index, children, className }: { index?: string; childr
 type CtaProps = { href: string; children: ReactNode; variant?: "primary" | "outline-dark" | "outline-light"; className?: string };
 
 export function CtaLink({ href, children, variant = "primary", className }: CtaProps) {
-  const external = href.startsWith("http");
+  const opensNewTab = /^https?:\/\/(?:www\.)?(?:wa\.me|(?:api\.|web\.)?whatsapp\.com|linkedin\.com|instagram\.com)(?:[/?#:]|$)/i.test(href);
   const styles = {
     primary: "bg-primary text-primary-foreground hover:bg-foreground",
     "outline-dark": "border border-line-dark text-on-graphite hover:border-primary hover:text-primary",
@@ -28,7 +28,7 @@ export function CtaLink({ href, children, variant = "primary", className }: CtaP
   return (
     <a
       href={href}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(opensNewTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn(
         "group inline-flex items-center gap-3 rounded-sm px-6 py-4 text-sm font-medium tracking-wide transition-colors duration-300",
         styles,

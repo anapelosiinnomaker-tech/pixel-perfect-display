@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
 import { nav, serviceCatalog } from "@/content/site";
+import { serviceLandings } from "@/content/service-landings";
 
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
@@ -34,5 +35,11 @@ describe("App routing", () => {
     const product = serviceCatalog.flatMap(category => category.items).find(item => item.title === "Desenvolvimento de produtos");
     expect(product?.href).toBe("/des-de-produtos");
     expect(router.matchRoutes(product!.href).at(-1)?.routeId).toBe("/des-de-produtos");
+  });
+  it.each(serviceLandings)("opens $title from the service catalog at /$slug", service => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    const destination = `/${service.slug}`;
+    expect(serviceCatalog.flatMap(category => category.items).some(item => item.href === destination)).toBe(true);
+    expect(router.matchRoutes(destination).at(-1)?.routeId).toBe(destination);
   });
 });

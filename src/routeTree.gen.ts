@@ -10,8 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AutomacaoDeProcessosRouteImport } from './routes/automacao-de-processos'
+import { Route as AutomacaoIndustrialRouteImport } from './routes/automacao-industrial'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as DesDeProdutosRouteImport } from './routes/des-de-produtos'
+import { Route as DesDeSoftwareRouteImport } from './routes/des-de-software'
+import { Route as EngReversaRouteImport } from './routes/eng-reversa'
+import { Route as MapeamentoDeProcessosRouteImport } from './routes/mapeamento-de-processos'
+import { Route as PaineisEletricosRouteImport } from './routes/paineis-eletricos'
+import { Route as PrototipagemRouteImport } from './routes/prototipagem'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as ApiContatoRouteImport } from './routes/api.contato'
@@ -19,6 +26,16 @@ import { Route as ApiContatoRouteImport } from './routes/api.contato'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutomacaoDeProcessosRoute = AutomacaoDeProcessosRouteImport.update({
+  id: '/automacao-de-processos',
+  path: '/automacao-de-processos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutomacaoIndustrialRoute = AutomacaoIndustrialRouteImport.update({
+  id: '/automacao-industrial',
+  path: '/automacao-industrial',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -29,6 +46,31 @@ const ContatoRoute = ContatoRouteImport.update({
 const DesDeProdutosRoute = DesDeProdutosRouteImport.update({
   id: '/des-de-produtos',
   path: '/des-de-produtos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesDeSoftwareRoute = DesDeSoftwareRouteImport.update({
+  id: '/des-de-software',
+  path: '/des-de-software',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EngReversaRoute = EngReversaRouteImport.update({
+  id: '/eng-reversa',
+  path: '/eng-reversa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapeamentoDeProcessosRoute = MapeamentoDeProcessosRouteImport.update({
+  id: '/mapeamento-de-processos',
+  path: '/mapeamento-de-processos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaineisEletricosRoute = PaineisEletricosRouteImport.update({
+  id: '/paineis-eletricos',
+  path: '/paineis-eletricos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrototipagemRoute = PrototipagemRouteImport.update({
+  id: '/prototipagem',
+  path: '/prototipagem',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicosRoute = ServicosRouteImport.update({
@@ -49,16 +91,30 @@ const ApiContatoRoute = ApiContatoRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/automacao-de-processos': typeof AutomacaoDeProcessosRoute
+  '/automacao-industrial': typeof AutomacaoIndustrialRoute
   '/contato': typeof ContatoRoute
   '/des-de-produtos': typeof DesDeProdutosRoute
+  '/des-de-software': typeof DesDeSoftwareRoute
+  '/eng-reversa': typeof EngReversaRoute
+  '/mapeamento-de-processos': typeof MapeamentoDeProcessosRoute
+  '/paineis-eletricos': typeof PaineisEletricosRoute
+  '/prototipagem': typeof PrototipagemRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/api/contato': typeof ApiContatoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/automacao-de-processos': typeof AutomacaoDeProcessosRoute
+  '/automacao-industrial': typeof AutomacaoIndustrialRoute
   '/contato': typeof ContatoRoute
   '/des-de-produtos': typeof DesDeProdutosRoute
+  '/des-de-software': typeof DesDeSoftwareRoute
+  '/eng-reversa': typeof EngReversaRoute
+  '/mapeamento-de-processos': typeof MapeamentoDeProcessosRoute
+  '/paineis-eletricos': typeof PaineisEletricosRoute
+  '/prototipagem': typeof PrototipagemRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/api/contato': typeof ApiContatoRoute
@@ -66,8 +122,15 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/automacao-de-processos': typeof AutomacaoDeProcessosRoute
+  '/automacao-industrial': typeof AutomacaoIndustrialRoute
   '/contato': typeof ContatoRoute
   '/des-de-produtos': typeof DesDeProdutosRoute
+  '/des-de-software': typeof DesDeSoftwareRoute
+  '/eng-reversa': typeof EngReversaRoute
+  '/mapeamento-de-processos': typeof MapeamentoDeProcessosRoute
+  '/paineis-eletricos': typeof PaineisEletricosRoute
+  '/prototipagem': typeof PrototipagemRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/api/contato': typeof ApiContatoRoute
@@ -76,24 +139,45 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/automacao-de-processos'
+    | '/automacao-industrial'
     | '/contato'
     | '/des-de-produtos'
+    | '/des-de-software'
+    | '/eng-reversa'
+    | '/mapeamento-de-processos'
+    | '/paineis-eletricos'
+    | '/prototipagem'
     | '/servicos'
     | '/sobre'
     | '/api/contato'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/automacao-de-processos'
+    | '/automacao-industrial'
     | '/contato'
     | '/des-de-produtos'
+    | '/des-de-software'
+    | '/eng-reversa'
+    | '/mapeamento-de-processos'
+    | '/paineis-eletricos'
+    | '/prototipagem'
     | '/servicos'
     | '/sobre'
     | '/api/contato'
   id:
     | '__root__'
     | '/'
+    | '/automacao-de-processos'
+    | '/automacao-industrial'
     | '/contato'
     | '/des-de-produtos'
+    | '/des-de-software'
+    | '/eng-reversa'
+    | '/mapeamento-de-processos'
+    | '/paineis-eletricos'
+    | '/prototipagem'
     | '/servicos'
     | '/sobre'
     | '/api/contato'
@@ -101,8 +185,15 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AutomacaoDeProcessosRoute: typeof AutomacaoDeProcessosRoute
+  AutomacaoIndustrialRoute: typeof AutomacaoIndustrialRoute
   ContatoRoute: typeof ContatoRoute
   DesDeProdutosRoute: typeof DesDeProdutosRoute
+  DesDeSoftwareRoute: typeof DesDeSoftwareRoute
+  EngReversaRoute: typeof EngReversaRoute
+  MapeamentoDeProcessosRoute: typeof MapeamentoDeProcessosRoute
+  PaineisEletricosRoute: typeof PaineisEletricosRoute
+  PrototipagemRoute: typeof PrototipagemRoute
   ServicosRoute: typeof ServicosRoute
   SobreRoute: typeof SobreRoute
   ApiContatoRoute: typeof ApiContatoRoute
@@ -117,6 +208,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/automacao-de-processos': {
+      id: '/automacao-de-processos'
+      path: '/automacao-de-processos'
+      fullPath: '/automacao-de-processos'
+      preLoaderRoute: typeof AutomacaoDeProcessosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/automacao-industrial': {
+      id: '/automacao-industrial'
+      path: '/automacao-industrial'
+      fullPath: '/automacao-industrial'
+      preLoaderRoute: typeof AutomacaoIndustrialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contato': {
       id: '/contato'
       path: '/contato'
@@ -129,6 +234,41 @@ declare module '@tanstack/react-router' {
       path: '/des-de-produtos'
       fullPath: '/des-de-produtos'
       preLoaderRoute: typeof DesDeProdutosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/des-de-software': {
+      id: '/des-de-software'
+      path: '/des-de-software'
+      fullPath: '/des-de-software'
+      preLoaderRoute: typeof DesDeSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eng-reversa': {
+      id: '/eng-reversa'
+      path: '/eng-reversa'
+      fullPath: '/eng-reversa'
+      preLoaderRoute: typeof EngReversaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapeamento-de-processos': {
+      id: '/mapeamento-de-processos'
+      path: '/mapeamento-de-processos'
+      fullPath: '/mapeamento-de-processos'
+      preLoaderRoute: typeof MapeamentoDeProcessosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paineis-eletricos': {
+      id: '/paineis-eletricos'
+      path: '/paineis-eletricos'
+      fullPath: '/paineis-eletricos'
+      preLoaderRoute: typeof PaineisEletricosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prototipagem': {
+      id: '/prototipagem'
+      path: '/prototipagem'
+      fullPath: '/prototipagem'
+      preLoaderRoute: typeof PrototipagemRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/servicos': {
@@ -157,8 +297,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AutomacaoDeProcessosRoute: AutomacaoDeProcessosRoute,
+  AutomacaoIndustrialRoute: AutomacaoIndustrialRoute,
   ContatoRoute: ContatoRoute,
   DesDeProdutosRoute: DesDeProdutosRoute,
+  DesDeSoftwareRoute: DesDeSoftwareRoute,
+  EngReversaRoute: EngReversaRoute,
+  MapeamentoDeProcessosRoute: MapeamentoDeProcessosRoute,
+  PaineisEletricosRoute: PaineisEletricosRoute,
+  PrototipagemRoute: PrototipagemRoute,
   ServicosRoute: ServicosRoute,
   SobreRoute: SobreRoute,
   ApiContatoRoute: ApiContatoRoute,

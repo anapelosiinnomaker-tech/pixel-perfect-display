@@ -104,8 +104,6 @@ function Category({ cat, dark }: { cat: (typeof serviceCatalog)[number]; dark: b
             <li key={s.title} className={`border-b ${line}`}>
               <a
                 href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group grid grid-cols-1 gap-x-4 gap-y-3 py-7 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start"
               >
                 <div>
