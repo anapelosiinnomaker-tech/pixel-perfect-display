@@ -106,7 +106,7 @@ export const serviceCatalog: ServiceCategory[] = [
     highlight: "produtos, sistemas e estruturas",
     tail: "que atendem a diferentes necessidades.",
     items: [
-      { title: "Desenvolvimento de produtos", description: "Projeto e desenvolvimento de produtos e sistemas de acordo com a demanda do cliente.", href: "https://innomaker.com.br/des-de-produtos" },
+      { title: "Desenvolvimento de produtos", description: "Projeto e desenvolvimento de produtos e sistemas de acordo com a demanda do cliente.", href: "/des-de-produtos" },
       { title: "Prototipagem", description: "Desenvolvimento e validação de protótipos para transformar ideias em aplicações funcionais, testando conceitos e aprimorando seu desempenho antes da implementação.", href: "https://innomaker.com.br/prototipagem" },
       { title: "Engenharia reversa", description: "Projeto para produtos já existentes, detalhando seu funcionamento e aprimorando seu desempenho.", href: "https://innomaker.com.br/eng-reversa" },
       { title: "Painéis elétricos", description: "Projeto e desenvolvimento de painéis elétricos para diferentes aplicações e necessidades, desde a definição dos componentes até a montagem e implementação dos sistemas.", href: "https://innomaker.com.br/paineis-eletricos" },

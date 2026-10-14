@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as DesDeProdutosRouteImport } from './routes/des-de-produtos'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as ApiContatoRouteImport } from './routes/api.contato'
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesDeProdutosRoute = DesDeProdutosRouteImport.update({
+  id: '/des-de-produtos',
+  path: '/des-de-produtos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicosRoute = ServicosRouteImport.update({
@@ -44,6 +50,7 @@ const ApiContatoRoute = ApiContatoRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/des-de-produtos': typeof DesDeProdutosRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/api/contato': typeof ApiContatoRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/des-de-produtos': typeof DesDeProdutosRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/api/contato': typeof ApiContatoRoute
@@ -59,21 +67,42 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/des-de-produtos': typeof DesDeProdutosRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/api/contato': typeof ApiContatoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contato' | '/servicos' | '/sobre' | '/api/contato'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/des-de-produtos'
+    | '/servicos'
+    | '/sobre'
+    | '/api/contato'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/servicos' | '/sobre' | '/api/contato'
-  id: '__root__' | '/' | '/contato' | '/servicos' | '/sobre' | '/api/contato'
+  to:
+    | '/'
+    | '/contato'
+    | '/des-de-produtos'
+    | '/servicos'
+    | '/sobre'
+    | '/api/contato'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/des-de-produtos'
+    | '/servicos'
+    | '/sobre'
+    | '/api/contato'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContatoRoute: typeof ContatoRoute
+  DesDeProdutosRoute: typeof DesDeProdutosRoute
   ServicosRoute: typeof ServicosRoute
   SobreRoute: typeof SobreRoute
   ApiContatoRoute: typeof ApiContatoRoute
@@ -93,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/contato'
       fullPath: '/contato'
       preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/des-de-produtos': {
+      id: '/des-de-produtos'
+      path: '/des-de-produtos'
+      fullPath: '/des-de-produtos'
+      preLoaderRoute: typeof DesDeProdutosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/servicos': {
@@ -122,6 +158,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
+  DesDeProdutosRoute: DesDeProdutosRoute,
   ServicosRoute: ServicosRoute,
   SobreRoute: SobreRoute,
   ApiContatoRoute: ApiContatoRoute,
