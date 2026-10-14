@@ -65,7 +65,6 @@ function AreasIndex() {
   return (
     <section className="bg-background">
       <Container className="py-16 lg:py-20">
-        <Eyebrow className="text-muted-foreground">Nossas áreas de atuação</Eyebrow>
         <div className="mt-10 grid border-t border-foreground md:grid-cols-3">
           {serviceCatalog.map((c) => (
             <a key={c.id} href={`#${c.id}`} className="group flex flex-col gap-3 border-b border-border py-7 md:border-b-0 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0">
