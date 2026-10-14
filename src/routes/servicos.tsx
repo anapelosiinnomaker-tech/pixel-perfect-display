@@ -42,7 +42,6 @@ function Intro() {
       <div className="tech-grid pointer-events-none absolute inset-0 opacity-50" />
       <Container className="relative grid gap-12 pb-16 pt-32 lg:grid-cols-12 lg:items-end lg:pb-24 lg:pt-40">
         <div className="lg:col-span-6">
-          <Eyebrow className="animate-rise text-on-graphite-muted">Conheça nossa carta de serviços</Eyebrow>
           <h1 className="animate-rise mt-8 text-[clamp(2rem,4vw,3.5rem)] font-extrabold uppercase leading-[0.98]" style={{ animationDelay: "120ms" }}>
             Ideias ganham forma.
             <br />
@@ -98,9 +97,6 @@ function Category({ cat, dark }: { cat: (typeof serviceCatalog)[number]; dark: b
             <p className={`mt-5 max-w-sm text-base leading-relaxed ${muted}`}>
               {cat.lead} <strong className={`font-medium ${strong}`}>{cat.highlight}</strong>
               {cat.tail ? ` ${cat.tail}` : ""}
-            </p>
-            <p className={`eyebrow mt-8 ${muted}`}>
-              {cat.items.length} {cat.items.length === 1 ? "serviço" : "serviços"}
             </p>
           </div>
         </div>
