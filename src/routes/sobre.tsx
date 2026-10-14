@@ -44,7 +44,6 @@ function Introduction() {
       <Container className="relative pb-16 pt-32 sm:pt-36 lg:pb-20 lg:pt-40">
         <div className="grid gap-10 md:grid-cols-12 md:items-center lg:gap-16">
           <div className="md:col-span-7">
-            <p className="mb-6 text-sm text-on-graphite-muted">Sobre a Innomaker</p>
             <h1 id="sobre-title" className="animate-rise max-w-3xl text-[clamp(2.25rem,4.8vw,4.25rem)] font-extrabold uppercase leading-[1.02]">
               Tecnologia que <span className="text-primary">nasceu da prática.</span>
             </h1>
@@ -63,7 +62,7 @@ function Introduction() {
             </figcaption>
           </figure>
         </div>
-        <div className="mt-14 grid gap-6 border-t border-line-dark pt-10 sm:mt-16 md:grid-cols-12 md:gap-10 lg:mt-20 lg:pt-12">
+        <div className="mt-14 grid gap-6 pt-0 sm:mt-16 md:grid-cols-12 md:gap-10 lg:mt-20 lg:pt-0">
           <h2 className="max-w-lg text-2xl font-bold uppercase leading-[1.15] sm:text-3xl md:col-span-5 lg:text-4xl">Uma extensão da sua engenharia e do seu <span className="text-primary">P&amp;D.</span></h2>
           <p className="max-w-2xl text-base leading-relaxed text-on-graphite-muted sm:text-lg md:col-span-7 lg:text-xl">{about.introduction}</p>
         </div>
