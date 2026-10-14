@@ -8,7 +8,7 @@ export function Hero() {
       <div className="tech-grid pointer-events-none absolute inset-0 opacity-60" />
       <Container className="relative grid grid-cols-1 items-center gap-10 pb-16 pt-28 lg:min-h-[100svh] lg:grid-cols-12 lg:pb-20 lg:pt-32">
         <div className="relative z-10 lg:col-span-6">
-          <Eyebrow index="IM/26" className="animate-rise text-on-graphite-muted">
+          <Eyebrow index="Innomaker" className="animate-rise text-on-graphite-muted">
             Engenharia · Processos · Tecnologia
           </Eyebrow>
           <h1 className="animate-rise mt-8 text-[clamp(2.25rem,5.2vw,4.75rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.025em]" style={{ animationDelay: "120ms" }}>
