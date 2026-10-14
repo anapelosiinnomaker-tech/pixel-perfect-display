@@ -101,22 +101,19 @@ function Category({ cat, dark }: { cat: (typeof serviceCatalog)[number]; dark: b
           </div>
         </div>
         <ol className={`border-t lg:col-span-8 ${dark ? "border-on-graphite" : "border-foreground"}`}>
-          {cat.items.map((s, i) => (
+          {cat.items.map((s) => (
             <li key={s.title} className={`border-b ${line}`}>
               <a
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 gap-y-3 py-7 sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:items-start"
+                className="group grid grid-cols-1 gap-x-4 gap-y-3 py-7 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start"
               >
-                <span className={`font-mono text-xs pt-1 ${muted} group-hover:text-primary`}>
-                  {cat.index}.{String(i + 1).padStart(2, "0")}
-                </span>
                 <div>
                   <h3 className="text-lg font-semibold uppercase tracking-tight transition-transform duration-300 group-hover:translate-x-1 sm:text-xl">{s.title}</h3>
                   <p className={`mt-2 max-w-xl text-sm leading-relaxed ${muted}`}>{s.description}</p>
                 </div>
-                <span className={`col-start-2 inline-flex items-center gap-2 text-sm font-medium sm:col-start-3 sm:pt-1 ${strong} group-hover:text-primary`}>
+                <span className={`inline-flex items-center gap-2 text-sm font-medium sm:col-start-2 sm:pt-1 ${strong} group-hover:text-primary`}>
                   Saiba mais <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </span>
               </a>
