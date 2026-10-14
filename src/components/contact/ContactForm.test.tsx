@@ -54,4 +54,63 @@ describe("Contact form", () => {
     expect(await screen.findByText(/O formulário está indisponível/)).toBeInTheDocument();
     await waitFor(() => expect(screen.getByRole("button", { name: "Enviar mensagem" })).toBeDisabled());
   });
+
+  it("shows errors only after blur and clears them immediately on correction", () => {
+    setup();
+    const email = document.getElementById("contact-email")!;
+    const phone = document.getElementById("contact-phone")!;
+    expect(screen.queryByText("Informe um e-mail válido.")).not.toBeInTheDocument();
+    expect(screen.queryByText("Informe um telefone brasileiro válido com DDD.")).not.toBeInTheDocument();
+    fireEvent.change(email, { target: { value: "incompleto@" } });
+    fireEvent.change(phone, { target: { value: "23999999999" } });
+    expect(email).toHaveAttribute("aria-invalid", "false");
+    expect(phone).toHaveAttribute("aria-invalid", "false");
+    fireEvent.blur(email);
+    fireEvent.blur(phone);
+    expect(screen.getByText("Informe um e-mail válido.")).toHaveAttribute("id", "error-email");
+    expect(email).toHaveAttribute("aria-describedby", "error-email");
+    expect(phone).toHaveAttribute("aria-describedby", "error-phone");
+    expect(phone).toHaveAttribute("aria-invalid", "true");
+    expect(email).toHaveValue("incompleto@");
+    expect(phone).toHaveValue("23999999999");
+    fireEvent.change(email, { target: { value: "ana+projeto@example.org" } });
+    fireEvent.change(phone, { target: { value: "(11) 3333-4444" } });
+    expect(screen.queryByText("Informe um e-mail válido.")).not.toBeInTheDocument();
+    expect(screen.queryByText("Informe um telefone brasileiro válido com DDD.")).not.toBeInTheDocument();
+    expect(email).toHaveAttribute("aria-invalid", "false");
+    expect(phone).not.toHaveAttribute("aria-describedby");
+  });
+
+  it("blocks invalid e-mail and phone on submit, preserving input and focusing the first error", async () => {
+    const fetcher = setup(); fill(); await verify();
+    const email = document.getElementById("contact-email")!;
+    const phone = document.getElementById("contact-phone")!;
+    fireEvent.change(email, { target: { value: "pessoa@" } });
+    fireEvent.change(phone, { target: { value: "23999999999" } });
+    fireEvent.click(screen.getByRole("button", { name: "Enviar mensagem" }));
+    expect(screen.getByText("Informe um e-mail válido.")).toBeInTheDocument();
+    expect(screen.getByText("Informe um telefone brasileiro válido com DDD.")).toBeInTheDocument();
+    expect(document.activeElement).toBe(email);
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    fireEvent.change(email, { target: { value: "ana@example.org" } });
+    expect(email).toHaveAttribute("aria-invalid", "false");
+    expect(phone).toHaveValue("23999999999");
+    fireEvent.click(screen.getByRole("button", { name: "Enviar mensagem" }));
+    expect(document.activeElement).toBe(phone);
+    expect(fetcher).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(["(11) 3333-4444", "+55 (21) 99999-9999"])("preserves the successful sending flow for %s", async phone => {
+    const fetcher = setup(); fill(); await verify();
+    fireEvent.change(document.getElementById("contact-email")!, { target: { value: "  ana+projeto@example.org  " } });
+    fireEvent.change(document.getElementById("contact-phone")!, { target: { value: phone } });
+    fireEvent.click(screen.getByRole("button", { name: "Enviar mensagem" }));
+    expect(await screen.findByText(/Mensagem enviada!/)).toBeInTheDocument();
+    expect(fetcher).toHaveBeenCalledTimes(2);
+    const payload = JSON.parse(fetcher.mock.calls[1]?.[1]?.body as string);
+    expect(payload.email).toBe("ana+projeto@example.org");
+    expect(payload.phone).toBe(phone);
+    expect(payload.token).toBe("test-token");
+    expect(payload.submissionId).toEqual(expect.any(String));
+  });
 });

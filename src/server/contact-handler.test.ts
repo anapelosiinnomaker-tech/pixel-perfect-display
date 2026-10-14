@@ -27,6 +27,9 @@ describe("Contact endpoint", () => {
   });
   it.each([
     { ...valid, name: "" }, { ...valid, email: "bad" }, { ...valid, phone: "123" },
+    { ...valid, email: "ana @example.org" }, { ...valid, email: "ana@example" },
+    { ...valid, phone: "23999999999" }, { ...valid, phone: "11111111111" },
+    { ...valid, phone: "+1 (21) 99999-9999" }, { ...valid, phone: "21abc999999999" },
     { ...valid, subject: "x\r\nBcc: somebody" }, { ...valid, message: "curta" },
     { ...valid, message: "x".repeat(5001) }, { ...valid, website: "spam.test" },
     { ...valid, token: "" }, { ...valid, to: ["other@example.test"] },
@@ -93,5 +96,33 @@ describe("Contact endpoint", () => {
   it("reads per-request Cloudflare bindings without exposing all bindings", () => {
     const runtimeRequest = Object.assign(new Request("https://site.example"), { runtime: { cloudflare: { env: { ...environment, UNRELATED_SECRET: "private" } } } });
     expect(getContactEnv(runtimeRequest)).toEqual(environment);
+  });
+
+  it.each(["1133334444", "(11) 3333-4444", "21999999999", "+5521999999999"])("validates phone and trims e-mail on the server: %s", async phone => {
+    const fetcher = sender();
+    const response = await createContactHandler(() => environment, fetcher)(request({
+      ...valid, phone, email: "  ana+projeto@example.org  ",
+    }));
+    expect(response.status).toBe(200);
+    const payload = JSON.parse(fetcher.mock.calls[1]?.[1]?.body as string);
+    expect(payload.reply_to).toBe("ana+projeto@example.org");
+    expect(payload.text).toContain("Telefone: " + phone);
+    expect(payload.to).toEqual(["anapelosi.innomaker@gmail.com", "wandersoncorrea@innomaker.com.br"]);
+  });
+
+  it("returns accessible field error messages for requests bypassing the browser", async () => {
+    const fetcher = sender();
+    const response = await createContactHandler(() => environment, fetcher)(request({
+      ...valid, email: "ana@", phone: "23999999999",
+    }));
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({
+      ok: false,
+      errors: {
+        email: "Informe um e-mail válido.",
+        phone: "Informe um telefone brasileiro válido com DDD.",
+      },
+    });
+    expect(fetcher).not.toHaveBeenCalled();
   });
 });

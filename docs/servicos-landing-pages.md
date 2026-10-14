@@ -16,17 +16,18 @@ As sete páginas usam `src/components/services/ServiceLandingPage.tsx`, com dado
 
 Os títulos e parágrafos foram recuperados das páginas completas, via HTTP, após o leitor web não conseguir abri-las. Não ficou conteúdo inacessível. Foram normalizados capitalização, espaços e a grafia “Documentação técnica”, que aparece concatenada na referência. Os títulos editoriais das seções de etapas apenas identificam a sequência já publicada. Não foram acrescentados serviços, especificações, tecnologias, clientes, métricas ou resultados.
 
-## Revisão editorial aplicada
+## Pontos editoriais da fonte preservados
 
-Após a recuperação das fontes, o usuário solicitou corrigir os problemas de coerência também presentes no site publicado. Foram aplicadas estas correções, preservando o escopo dos serviços:
+Conferência posterior: as cinco páginas foram consultadas novamente e não apresentaram divergências de títulos, descrições ou ordem em relação ao código. Veja as associações publicadas e o resultado em [revisao-editorial-servicos.md](revisao-editorial-servicos.md).
 
-- Prototipagem: título “Limitações e ajustes” para a descrição sobre limitações e possíveis ajustes.
-- Engenharia Reversa: representação técnica em “Reconstrução”; avaliação de resultados e melhorias em “Aprimoramento”.
-- Painéis Elétricos: descrições próprias para montagem/instalação e integração dos componentes; sequência Planejamento → Projeto elétrico → Montagem → Instalação.
-- Automação de Processos: títulos “Implementação” e “Testes e ajustes” para as respectivas descrições.
-- Desenvolvimento de Software: títulos “Desenvolvimento” e “Validação e entrega”; descrição de “Sistemas sob medida” alinhada a aplicações e sistemas personalizados.
+Esses pontos precisam de confirmação editorial caso se deseje corrigi-los; a implementação não presume o que deveria substituir o texto publicado:
 
-O detalhamento e o histórico da conferência das fontes estão em [revisao-editorial-servicos.md](revisao-editorial-servicos.md). Essas mudanças corrigem o conteúdo editorial; não representam uma nova versão do site publicado de referência.
+- Prototipagem usa “Detalhamento do produto” para a descrição sobre identificação de limitações e ajustes.
+- Engenharia Reversa associa “Reconstrução” à avaliação de resultados e melhorias, e “Aprimoramento” à representação técnica. A ordem e as associações foram mantidas.
+- Painéis Elétricos repete textos genéricos de produto em “Montagem e instalação” e “Integração de sistemas”; suas quatro etapas são as mesmas de Engenharia Reversa na fonte. Os textos foram recuperados da própria URL de Painéis, não transplantados da outra página.
+- Automação de Processos usa “Análise” para a implementação e “Documentação” para testagem e ajustes.
+- Desenvolvimento de Software usa “Análise” para construção e implementação e “Documentação” para validação, ajustes e disponibilização.
+
 ## Imagens
 
 Foram geradas sete ilustrações específicas, sem pessoas, rostos, corpos ou mãos, em `public/images/services/`. A direção de arte usa grafite, metal, cinzas neutros e verde discreto. Os arquivos foram codificados como JPEG para reduzir o peso, preservando as dimensões originais de 1536 × 1024. Cada imagem é usada pela hero de seu serviço. São cenas ilustrativas, sem identificação de instalações, equipes ou cases reais da Innomaker.
@@ -46,4 +47,4 @@ A árvore de rotas é gerada automaticamente pelo build/dev do TanStack. Testes 
 - Movimento reduzido foi verificado nas sete páginas, sem animações de entrada ativas e com conteúdo visível. O foco de teclado em CTA foi verificado no template compartilhado.
 - As sete capturas desktop/celular foram geradas e a revisão visual cobriu todas as páginas. Home, Sobre, Serviços, Contato e Desenvolvimento de Produtos também responderam com HTTP 200. Seus arquivos e componentes globais permaneceram intactos.
 
-Revisão editorial concluída conforme solicitação do usuário. Não há pendência de acesso às fontes ou de implementação das sete páginas.
+Pendência: apenas a revisão editorial dos pontos da fonte listados acima, caso a Innomaker deseje corrigir o conteúdo publicado. Não há pendência de acesso às fontes ou de implementação das sete páginas.

@@ -23,6 +23,26 @@ export function ContactForm() {
   const submissionId = useRef<string | null>(null);
   const inFlight = useRef(false);
   const statusElement = useRef<HTMLDivElement>(null);
+  const touched = useRef(new Set<keyof ContactFields>());
+
+  function validateField(name: keyof ContactFields, value: string) {
+    const parsed = contactFieldsSchema.shape[name].safeParse(value);
+    setErrors(previous => {
+      const next = { ...previous };
+      if (parsed.success) delete next[name];
+      else next[name] = parsed.error.issues[0]?.message ?? "Confira este campo.";
+      return next;
+    });
+  }
+
+  function blurField(name: keyof ContactFields, value: string) {
+    touched.current.add(name);
+    validateField(name, value);
+  }
+
+  function changeField(name: keyof ContactFields, value: string) {
+    if (touched.current.has(name) || errors[name]) validateField(name, value);
+  }
 
   useEffect(() => {
     const controller = new AbortController();
@@ -46,6 +66,7 @@ export function ContactForm() {
     const form = event.currentTarget;
     const formData = new FormData(form);
     const parsed = contactFieldsSchema.safeParse(Object.fromEntries(formData));
+    touched.current = new Set(Object.keys(contactFieldsSchema.shape) as (keyof ContactFields)[]);
     if (!parsed.success) {
       const validationErrors = fieldErrors(parsed.error);
       setErrors(validationErrors);
@@ -76,6 +97,7 @@ export function ContactForm() {
         setStatus("success");
         setMessage("Mensagem enviada! Obrigado pelo contato.");
         form.reset();
+        touched.current.clear();
         submissionId.current = null;
       }
     } catch {
@@ -100,14 +122,14 @@ export function ContactForm() {
         {fields.map(field => (
           <div key={field.name} className={field.name === "subject" ? "sm:col-span-2" : "min-w-0"}>
             <label htmlFor={`contact-${field.name}`} className="text-sm font-medium">{field.label}{field.optional && <span className="font-normal text-muted-foreground"> (opcional)</span>}</label>
-            <input id={`contact-${field.name}`} name={field.name} type={field.type} autoComplete={field.autoComplete} required={!field.optional} maxLength={field.maxLength} className={inputClass} aria-invalid={Boolean(errors[field.name])} aria-describedby={errors[field.name] ? `error-${field.name}` : undefined} />
-            {errors[field.name] && <p id={`error-${field.name}`} className="mt-2 text-sm text-destructive">{errors[field.name]}</p>}
+            <input id={`contact-${field.name}`} name={field.name} type={field.type} autoComplete={field.autoComplete} required={!field.optional} maxLength={field.maxLength} className={inputClass} onBlur={event => blurField(field.name, event.currentTarget.value)} onChange={event => changeField(field.name, event.currentTarget.value)} aria-invalid={Boolean(errors[field.name])} aria-describedby={errors[field.name] ? `error-${field.name}` : undefined} />
+            {errors[field.name] && <p id={`error-${field.name}`} aria-live="polite" className="mt-2 text-sm text-destructive">{errors[field.name]}</p>}
           </div>
         ))}
         <div className="sm:col-span-2">
           <label htmlFor="contact-message" className="text-sm font-medium">Mensagem</label>
-          <textarea id="contact-message" name="message" rows={5} required minLength={10} maxLength={5000} className={`${inputClass} min-h-36 resize-y`} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "error-message" : undefined} />
-          {errors.message && <p id="error-message" className="mt-2 text-sm text-destructive">{errors.message}</p>}
+          <textarea id="contact-message" name="message" rows={5} required minLength={10} maxLength={5000} className={`${inputClass} min-h-36 resize-y`} onBlur={event => blurField("message", event.currentTarget.value)} onChange={event => changeField("message", event.currentTarget.value)} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "error-message" : undefined} />
+          {errors.message && <p id="error-message" aria-live="polite" className="mt-2 text-sm text-destructive">{errors.message}</p>}
         </div>
         <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
           <label htmlFor="contact-website">Website</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off" />

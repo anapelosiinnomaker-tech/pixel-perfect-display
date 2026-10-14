@@ -4,8 +4,8 @@ export const about = {
   timeline: [
     { year: "2022", title: "Nascimento da Innomaker", description: "Desenvolvimento do Innoboat, embarcação robótica para coleta e análise de dados ambientais." },
     { year: "2024", title: "Testes e evolução do Innoboat", description: "Testes em campo e aprimoramento contínuo do Innoboat." },
-    { year: "2025", title: "Innoboat 2.0" },
-    { year: "Hoje", title: "Novos serviços" },
+    { year: "2025", title: "Innoboat 2.0", description: "Evolução da plataforma de monitoramento ambiental, com aprimoramentos em sua tecnologia e funcionalidades." },
+    { year: "Hoje", title: "Novos serviços", description: "Expansão da atuação da Innomaker para novas soluções em engenharia, automação e desenvolvimento tecnológico." },
   ],
   approach: [
     { title: "Experiência na prática", description: "Conhecimento construído em projetos reais e aplicado para transformar desafios técnicos em soluções viáveis." },

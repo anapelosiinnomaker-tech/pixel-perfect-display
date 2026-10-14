@@ -26,10 +26,6 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/30 to-transparent" />
             <div className="animate-scan absolute inset-x-0 top-0 h-px bg-primary/60" />
           </div>
-          <div className="eyebrow absolute bottom-6 right-6 hidden flex-col items-end gap-1 text-on-graphite-muted lg:flex">
-            <span>Inovação aplicada</span>
-            <span className="text-primary">● Engenharia avançada</span>
-          </div>
         </div>
       </Container>
     </section>
@@ -56,8 +52,8 @@ export function ServiceAreas() {
               className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-baseline gap-6 border-b border-border py-10 transition-colors md:grid-cols-12 md:gap-8"
             >
               <span className="font-mono text-sm text-muted-foreground transition-colors group-hover:text-primary md:col-span-1">{s.index}</span>
-              <h3 className="text-3xl font-bold uppercase transition-transform duration-500 group-hover:translate-x-2 sm:text-5xl md:col-span-5">{s.title}</h3>
-              <p className="col-span-3 col-start-2 max-w-md text-base leading-relaxed text-muted-foreground md:col-span-5 md:col-start-auto">
+              <h3 className="text-2xl font-bold uppercase transition-transform duration-500 group-hover:translate-x-2 sm:text-3xl md:col-span-5 lg:text-4xl">{s.title}</h3>
+              <p className="col-span-3 col-start-2 max-w-lg text-lg leading-relaxed text-muted-foreground md:col-span-5 md:col-start-auto lg:text-xl">
                 {s.lead} <strong className="font-medium text-foreground">{s.highlight}</strong>
               </p>
               <span className="row-start-1 col-start-3 flex h-12 w-12 items-center justify-center rounded-full border border-border transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground md:col-span-1 md:row-start-auto md:col-start-auto md:justify-self-end">
