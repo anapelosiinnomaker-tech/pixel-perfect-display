@@ -77,7 +77,64 @@ export const partners: Partner[] = [
 export const images = {
   hero: "/images/hero.jpg",
   integration: "/images/integracao-engenharia.jpg",
+  servicesIntro: "/images/servicos-intro.jpg",
   logoColor: "/images/innomaker-logo-color.png",
   logoWhite: "/images/innomaker-logo-white.png",
   whatsappIcon: "/images/whatsapp.png",
 };
+
+export type ServiceItem = { title: string; description: string; href: string };
+export type ServiceCategory = {
+  id: string;
+  index: string;
+  title: string;
+  summary: string;
+  lead: string;
+  highlight: string;
+  tail?: string;
+  items: ServiceItem[];
+};
+
+/** Carta de serviços — conteúdo de innomaker.com.br/servicos-2026/. */
+export const serviceCatalog: ServiceCategory[] = [
+  {
+    id: "engenharia",
+    index: "01",
+    title: "Engenharia",
+    summary: "Produtos, sistemas e soluções de engenharia.",
+    lead: "Do conceito à implementação, desenvolvemos",
+    highlight: "produtos, sistemas e estruturas",
+    tail: "que atendem a diferentes necessidades.",
+    items: [
+      { title: "Desenvolvimento de produtos", description: "Projeto e desenvolvimento de produtos e sistemas de acordo com a demanda do cliente.", href: "https://innomaker.com.br/des-de-produtos" },
+      { title: "Prototipagem", description: "Desenvolvimento e validação de protótipos para transformar ideias em aplicações funcionais, testando conceitos e aprimorando seu desempenho antes da implementação.", href: "https://innomaker.com.br/prototipagem" },
+      { title: "Engenharia reversa", description: "Projeto para produtos já existentes, detalhando seu funcionamento e aprimorando seu desempenho.", href: "https://innomaker.com.br/eng-reversa" },
+      { title: "Painéis elétricos", description: "Projeto e desenvolvimento de painéis elétricos para diferentes aplicações e necessidades, desde a definição dos componentes até a montagem e implementação dos sistemas.", href: "https://innomaker.com.br/paineis-eletricos" },
+      { title: "Automação industrial e sistemas de controle", description: "Desenvolvimento de soluções para automação, controle e integração de sistemas, buscando tornar operações mais eficientes, precisas e confiáveis.", href: "https://innomaker.com.br/automacao-industrial" },
+    ],
+  },
+  {
+    id: "processos",
+    index: "02",
+    title: "Processos",
+    summary: "Mapeamento, estruturação e automação de processos.",
+    lead: "Estruturamos e otimizamos processos para aumentar",
+    highlight: "eficiência e gerar resultados.",
+    items: [
+      { title: "Mapeamento de processos", description: "Análise e representação dos processos para visualizar etapas, fluxos e responsabilidades, trazendo mais clareza sobre como a operação funciona.", href: "https://innomaker.com.br/mapeamento-de-processos" },
+      { title: "Automação de processos", description: "Automação de atividades e fluxos para reduzir tarefas manuais, integrar etapas e tornar a execução das operações mais ágil e eficiente.", href: "https://innomaker.com.br/automacao-de-processos" },
+    ],
+  },
+  {
+    id: "tecnologia",
+    index: "03",
+    title: "Tecnologia",
+    summary: "Sistemas e soluções digitais sob medida.",
+    lead: "Criamos",
+    highlight: "soluções digitais",
+    tail: "sob medida para necessidades específicas do seu negócio.",
+    items: [
+      { title: "Desenvolvimento de software", description: "Desenvolvimento de sistemas e aplicações personalizados para atender às demandas de cada projeto.", href: "https://innomaker.com.br/des-de-software" },
+    ],
+  },
+];

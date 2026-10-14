@@ -17,7 +17,7 @@ export function Hero() {
             <p className="max-w-md text-base leading-relaxed sm:text-lg text-on-graphite-muted">
               Integramos <strong className="font-medium text-on-graphite">engenharia, processos e tecnologia</strong> para desenvolver soluções de acordo com as necessidades de cada projeto.
             </p>
-            <CtaLink href="https://innomaker.com.br/servicos-2026/">Conheça nossos serviços</CtaLink>
+            <CtaLink href="/servicos">Conheça nossos serviços</CtaLink>
           </div>
         </div>
         <div className="relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[46%]">
