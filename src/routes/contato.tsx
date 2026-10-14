@@ -26,7 +26,6 @@ function ContatoPage() {
           <div aria-hidden="true" className="tech-grid pointer-events-none absolute inset-0 opacity-40" />
           <Container className="relative grid gap-6 pb-14 pt-32 sm:pb-16 lg:grid-cols-12 lg:items-end lg:gap-12 lg:pt-40">
             <div className="lg:col-span-7">
-              <p className="mb-5 text-sm text-on-graphite-muted">Contato</p>
               <h1 id="contact-title" className="text-[clamp(2.25rem,4.8vw,4.25rem)] font-extrabold uppercase leading-[1.02]">Seu projeto<br /><span className="text-primary">começa aqui.</span></h1>
             </div>
             <p className="max-w-md text-base leading-relaxed text-on-graphite-muted sm:text-lg lg:col-span-5 lg:pb-1">Conte o que você precisa e nossa equipe avaliará a melhor forma de contribuir.</p>
