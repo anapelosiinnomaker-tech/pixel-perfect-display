@@ -62,9 +62,9 @@ function Introduction() {
             </figcaption>
           </figure>
         </div>
-        <div className="mt-10 grid gap-6 pt-0 sm:mt-12 md:grid-cols-12 md:gap-10 lg:mt-12 lg:pt-0">
-          <h2 className="max-w-lg text-2xl font-bold uppercase leading-[1.15] sm:text-3xl md:col-span-5 lg:text-4xl">Uma extensão da sua engenharia e do seu <span className="text-primary">P&amp;D.</span></h2>
-          <p className="max-w-2xl text-base leading-relaxed text-on-graphite-muted sm:text-lg md:col-span-7 lg:text-xl">{about.introduction}</p>
+        <div className="mt-10 grid gap-6 pt-0 sm:mt-12 md:grid-cols-12 md:items-center md:gap-8 lg:mt-12 lg:gap-10 lg:pt-0">
+          <h2 className="max-w-lg text-2xl font-bold uppercase leading-[1.15] sm:text-3xl md:col-span-6 lg:text-4xl">Uma extensão da sua engenharia e do seu <span className="text-primary">P&amp;D.</span></h2>
+          <p className="max-w-2xl text-base leading-relaxed text-on-graphite-muted sm:text-lg md:col-span-6 lg:text-xl">{about.introduction}</p>
         </div>
       </Container>
     </section>
