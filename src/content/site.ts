@@ -12,7 +12,7 @@ export type Partner = { name: string; logoUrl?: string; href?: string };
 export const nav: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Sobre", href: "https://innomaker.com.br/sobre-2026/" },
-  { label: "Serviços", href: "https://innomaker.com.br/servicos-2026/" },
+  { label: "Serviços", href: "/servicos" },
   { label: "Contato", href: "https://innomaker.com.br/contato-2026/" },
 ];
 
@@ -28,7 +28,7 @@ export const services: ServiceArea[] = [
     title: "Engenharia",
     lead: "Soluções de engenharia para",
     highlight: "transformar necessidades em produtos e sistemas.",
-    href: "https://innomaker.com.br/servicos-2026/#engenharia",
+    href: "/servicos#engenharia",
   },
   {
     id: "processos",
@@ -36,7 +36,7 @@ export const services: ServiceArea[] = [
     title: "Processos",
     lead: "Mapeamento e automação de processos para",
     highlight: "tornar operações mais eficientes.",
-    href: "https://innomaker.com.br/servicos-2026/#processos",
+    href: "/servicos#processos",
   },
   {
     id: "tecnologia",
@@ -44,7 +44,7 @@ export const services: ServiceArea[] = [
     title: "Tecnologia",
     lead: "Desenvolvimento de soluções digitais e sistemas",
     highlight: "sob medida para diferentes necessidades.",
-    href: "https://innomaker.com.br/servicos-2026/#tecnologia",
+    href: "/servicos#tecnologia",
   },
 ];
 
