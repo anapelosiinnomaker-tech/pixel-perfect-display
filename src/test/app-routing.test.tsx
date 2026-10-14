@@ -23,4 +23,10 @@ describe("App routing", () => {
     expect(aboutLink?.href).toBe("/sobre");
     expect(router.matchRoutes(aboutLink!.href).at(-1)?.routeId).toBe("/sobre");
   });
+  it("opens the internal Contato page from the shared navigation", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    const contactLink = nav.find(item => item.label === "Contato");
+    expect(contactLink?.href).toBe("/contato");
+    expect(router.matchRoutes(contactLink!.href).at(-1)?.routeId).toBe("/contato");
+  });
 });

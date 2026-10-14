@@ -13,7 +13,7 @@ export const nav: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Sobre", href: "/sobre" },
   { label: "Serviços", href: "/servicos" },
-  { label: "Contato", href: "https://innomaker.com.br/contato-2026/" },
+  { label: "Contato", href: "/contato" },
 ];
 
 export const social = [
