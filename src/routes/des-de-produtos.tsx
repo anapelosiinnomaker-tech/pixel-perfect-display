@@ -40,15 +40,10 @@ function ProductHero() {
     <section aria-labelledby="product-title" className="relative overflow-hidden bg-graphite text-on-graphite">
       <div aria-hidden="true" className="tech-grid pointer-events-none absolute inset-0 opacity-40" />
       <Container className="relative pb-14 pt-28 sm:pb-16 sm:pt-32 lg:pb-20 lg:pt-36">
-        <nav aria-label="Navegação do serviço" className="mb-8 flex flex-wrap items-center gap-x-3 text-xs text-on-graphite-muted sm:mb-10">
-          <a href="/servicos" className={`inline-flex min-h-11 items-center transition-colors hover:text-on-graphite ${focusStyle}`}>Serviços</a>
-          <span aria-hidden="true">/</span>
-          <a href="/servicos#engenharia" className={`inline-flex min-h-11 items-center transition-colors hover:text-primary ${focusStyle}`}>Engenharia</a>
-        </nav>
         <ProductReveal className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
           <div className="min-w-0 lg:col-span-7">
             <h1 id="product-title" className="text-[clamp(1.5rem,4.2vw,3.5rem)] font-extrabold uppercase leading-[1.04] tracking-[-0.025em]">
-              Desenvolvimento <span className="mt-1 block text-[1.45em]">de <span className="text-primary">produtos</span></span>
+              Desenvolvimento <span className="mt-1 block">de <span className="text-primary">produtos</span></span>
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-on-graphite">{content.introduction}</p>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-on-graphite-muted sm:text-base">{content.description}</p>
@@ -58,7 +53,7 @@ function ProductHero() {
             </div>
           </div>
           <figure className="min-w-0 lg:col-span-5">
-            <img src={content.image} alt="Mãos trabalhando com régua e lápis sobre desenhos técnicos de componentes mecânicos" width={1600} height={1067} fetchPriority="high" className="aspect-[8/5] w-full object-cover sm:aspect-[16/9] lg:aspect-square" />
+            <img src={content.image} alt="Composição ilustrativa de componentes mecânicos em alumínio, desenho técnico e paquímetro sobre bancada grafite" width={1536} height={1024} fetchPriority="high" className="aspect-[8/5] w-full object-cover sm:aspect-[16/9] lg:aspect-square" />
             <figcaption className="mt-4 border-l-2 border-primary pl-3 text-xs leading-relaxed text-on-graphite-muted">Projeto, desenvolvimento e validação.</figcaption>
           </figure>
         </ProductReveal>

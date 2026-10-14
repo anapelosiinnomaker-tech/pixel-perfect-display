@@ -1,5 +1,5 @@
 /** Textos preservados de https://innomaker.com.br/des-de-produtos/.
- * Fotografia da mesma referência: pexels-shkrabaanthony-6609367-scaled.jpg.
+ * Imagem da hero gerada por IA a pedido do usuário, em substituição à fotografia de referência.
  * A imagem é ilustrativa; não representa uma equipe ou projeto identificado da Innomaker.
  */
 export const productDevelopment = {
@@ -20,5 +20,5 @@ export const productDevelopment = {
   ],
   closingTitle: "Sua ideia pode virar um produto.",
   closingDescription: "Da concepção ao desenvolvimento, transformamos ideias em produtos, prontos para o próximo passo.",
-  image: "/images/desenvolvimento-produtos.jpg",
+  image: "/images/desenvolvimento-produtos-hero.png",
 };
