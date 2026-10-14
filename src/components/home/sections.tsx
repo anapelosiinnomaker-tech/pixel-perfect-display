@@ -137,7 +137,7 @@ export function ContactCta() {
       <Container className="relative grid gap-12 py-24 lg:grid-cols-12 lg:items-end lg:py-32">
         <div className="lg:col-span-8">
           <Eyebrow index="04" className="text-on-graphite-muted">Contato</Eyebrow>
-          <h2 className="mt-8 text-[clamp(2.5rem,6vw,5.5rem)] font-extrabold uppercase leading-[0.92]">
+          <h2 className="mt-8 text-[clamp(2.25rem,5.2vw,4.75rem)] font-extrabold uppercase leading-[0.92]">
             Pronto para dar o <span className="text-primary">próximo passo?</span>
           </h2>
         </div>
