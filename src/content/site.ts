@@ -11,7 +11,7 @@ export type Partner = { name: string; logoUrl?: string; href?: string };
 
 export const nav: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Sobre", href: "https://innomaker.com.br/sobre-2026/" },
+  { label: "Sobre", href: "/sobre" },
   { label: "Serviços", href: "/servicos" },
   { label: "Contato", href: "https://innomaker.com.br/contato-2026/" },
 ];
