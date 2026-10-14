@@ -42,8 +42,8 @@ function Introduction() {
     <section aria-labelledby="sobre-title" className="relative overflow-hidden bg-graphite text-on-graphite">
       <div aria-hidden="true" className="tech-grid pointer-events-none absolute inset-0 opacity-40" />
       <Container className="relative pb-16 pt-32 sm:pt-36 lg:pb-20 lg:pt-40">
-        <div className="grid gap-10 md:grid-cols-12 md:items-center lg:gap-16">
-          <div className="md:col-span-7">
+        <div className="grid gap-8 md:grid-cols-12 md:items-center lg:gap-10">
+          <div className="md:col-span-6">
             <h1 id="sobre-title" className="animate-rise max-w-3xl text-[clamp(2.25rem,4.8vw,4.25rem)] font-extrabold uppercase leading-[1.02]">
               Tecnologia que <span className="text-primary">nasceu da prática.</span>
             </h1>
@@ -54,15 +54,15 @@ function Introduction() {
               Conheça nossa trajetória <span aria-hidden="true" className="ml-4">↓</span>
             </a>
           </div>
-          <figure className="mx-auto w-full max-w-[440px] md:col-span-5 md:justify-self-end">
-            <img src={about.images.field} alt="Innoboat navegando em frente ao Museu de Arte Contemporânea de Niterói" width={1441} height={1442} fetchPriority="high" className="aspect-[4/3] w-full object-cover object-[center_70%]" />
-            <figcaption className="mt-4 space-y-1 border-l-2 border-primary pl-3 text-xs leading-relaxed text-on-graphite-muted">
+          <figure className="w-full md:col-span-6">
+            <img src={about.images.field} alt="Innoboat navegando em frente ao Museu de Arte Contemporânea de Niterói" width={1441} height={1442} fetchPriority="high" className="aspect-[8/5] w-full object-cover object-[center_70%]" />
+            <figcaption className="mt-3 space-y-1 border-l-2 border-primary pl-3 text-xs leading-relaxed text-on-graphite-muted">
               <span className="block">Innoboat em campo · Niterói, RJ</span>
               <span className="block">Engenharia aplicada a desafios reais.</span>
             </figcaption>
           </figure>
         </div>
-        <div className="mt-14 grid gap-6 pt-0 sm:mt-16 md:grid-cols-12 md:gap-10 lg:mt-20 lg:pt-0">
+        <div className="mt-10 grid gap-6 pt-0 sm:mt-12 md:grid-cols-12 md:gap-10 lg:mt-12 lg:pt-0">
           <h2 className="max-w-lg text-2xl font-bold uppercase leading-[1.15] sm:text-3xl md:col-span-5 lg:text-4xl">Uma extensão da sua engenharia e do seu <span className="text-primary">P&amp;D.</span></h2>
           <p className="max-w-2xl text-base leading-relaxed text-on-graphite-muted sm:text-lg md:col-span-7 lg:text-xl">{about.introduction}</p>
         </div>
@@ -175,12 +175,15 @@ function Partners() {
 
 function Conversation() {
   return (
-    <section aria-labelledby="conversa-title" className="border-l-4 border-primary bg-graphite text-on-graphite">
-      <Container className="grid gap-8 py-16 lg:grid-cols-12 lg:items-end lg:py-24">
-        <h2 id="conversa-title" className="max-w-2xl text-3xl font-extrabold uppercase leading-[1.05] sm:text-4xl lg:col-span-7">Seu desafio pode virar <span className="text-primary">uma solução.</span></h2>
-        <div className="lg:col-span-5">
-          <p className="text-base leading-relaxed text-on-graphite-muted">Vamos colocar as suas ideias em prática.</p>
-          <CtaLink href={WHATSAPP_URL} className="mt-6">Fale com a Innomaker</CtaLink>
+    <section aria-labelledby="conversa-title" className="relative overflow-hidden border-b border-primary/60 bg-graphite text-on-graphite">
+      <div aria-hidden="true" className="tech-grid pointer-events-none absolute inset-0 opacity-40" />
+      <Container className="relative grid gap-8 py-12 sm:py-14 lg:grid-cols-12 lg:items-center lg:gap-12 lg:py-16">
+        <div className="lg:col-span-8">
+          <h2 id="conversa-title" className="max-w-2xl text-[clamp(2rem,4.2vw,3.5rem)] font-extrabold uppercase leading-[1.04]">Seu desafio pode virar <span className="text-primary">uma solução.</span></h2>
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-on-graphite-muted sm:text-lg">Vamos colocar as suas ideias em prática.</p>
+        </div>
+        <div className="lg:col-span-4 lg:justify-self-end">
+          <CtaLink href={WHATSAPP_URL} className="w-full justify-between gap-6 px-8 py-5 text-base font-semibold hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:w-auto">Fale com a Innomaker</CtaLink>
         </div>
       </Container>
     </section>
