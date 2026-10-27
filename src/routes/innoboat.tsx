@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { Container, CtaLink, Eyebrow } from "@/components/site/primitives";
 import { WHATSAPP_URL } from "@/content/site";
 import innoboatAsset from "@/assets/innoboat.png.asset.json";
+import innoboatPoster from "@/assets/innoboat-video-poster.jpg.asset.json";
 
 const VIDEO_URL = "https://res.cloudinary.com/i1pdbo6b/video/upload/V%C3%ADdeo_Innoboat_Final.mp4";
 
@@ -104,10 +105,11 @@ function VideoSection() {
         <div className="flex justify-center lg:col-span-6 lg:justify-end">
           <video
             src={VIDEO_URL}
+            poster={innoboatPoster.url}
             controls
             playsInline
             preload="metadata"
-            className="aspect-[9/16] w-full max-w-[300px] rounded-sm border border-border bg-graphite shadow-2xl sm:max-w-[340px]"
+            className="aspect-[9/16] w-full max-w-[300px] rounded-sm border border-border bg-graphite object-cover shadow-2xl sm:max-w-[340px]"
           />
         </div>
       </Container>
