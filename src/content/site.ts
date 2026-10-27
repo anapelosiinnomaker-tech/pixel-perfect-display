@@ -13,6 +13,7 @@ export const nav: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Sobre", href: "/sobre" },
   { label: "Serviços", href: "/servicos" },
+  { label: "Conheça o Innoboat", href: "/innoboat" },
   { label: "Contato", href: "/contato" },
 ];
 
