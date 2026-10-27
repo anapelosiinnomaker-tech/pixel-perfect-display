@@ -16,6 +16,7 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as DesDeProdutosRouteImport } from './routes/des-de-produtos'
 import { Route as DesDeSoftwareRouteImport } from './routes/des-de-software'
 import { Route as EngReversaRouteImport } from './routes/eng-reversa'
+import { Route as InnoboatRouteImport } from './routes/innoboat'
 import { Route as MapeamentoDeProcessosRouteImport } from './routes/mapeamento-de-processos'
 import { Route as PaineisEletricosRouteImport } from './routes/paineis-eletricos'
 import { Route as PrototipagemRouteImport } from './routes/prototipagem'
@@ -58,6 +59,11 @@ const EngReversaRoute = EngReversaRouteImport.update({
   path: '/eng-reversa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InnoboatRoute = InnoboatRouteImport.update({
+  id: '/innoboat',
+  path: '/innoboat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MapeamentoDeProcessosRoute = MapeamentoDeProcessosRouteImport.update({
   id: '/mapeamento-de-processos',
   path: '/mapeamento-de-processos',
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/des-de-produtos': typeof DesDeProdutosRoute
   '/des-de-software': typeof DesDeSoftwareRoute
   '/eng-reversa': typeof EngReversaRoute
+  '/innoboat': typeof InnoboatRoute
   '/mapeamento-de-processos': typeof MapeamentoDeProcessosRoute
   '/paineis-eletricos': typeof PaineisEletricosRoute
   '/prototipagem': typeof PrototipagemRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/des-de-produtos': typeof DesDeProdutosRoute
   '/des-de-software': typeof DesDeSoftwareRoute
   '/eng-reversa': typeof EngReversaRoute
+  '/innoboat': typeof InnoboatRoute
   '/mapeamento-de-processos': typeof MapeamentoDeProcessosRoute
   '/paineis-eletricos': typeof PaineisEletricosRoute
   '/prototipagem': typeof PrototipagemRoute
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/des-de-produtos': typeof DesDeProdutosRoute
   '/des-de-software': typeof DesDeSoftwareRoute
   '/eng-reversa': typeof EngReversaRoute
+  '/innoboat': typeof InnoboatRoute
   '/mapeamento-de-processos': typeof MapeamentoDeProcessosRoute
   '/paineis-eletricos': typeof PaineisEletricosRoute
   '/prototipagem': typeof PrototipagemRoute
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/des-de-produtos'
     | '/des-de-software'
     | '/eng-reversa'
+    | '/innoboat'
     | '/mapeamento-de-processos'
     | '/paineis-eletricos'
     | '/prototipagem'
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/des-de-produtos'
     | '/des-de-software'
     | '/eng-reversa'
+    | '/innoboat'
     | '/mapeamento-de-processos'
     | '/paineis-eletricos'
     | '/prototipagem'
@@ -175,6 +186,7 @@ export interface FileRouteTypes {
     | '/des-de-produtos'
     | '/des-de-software'
     | '/eng-reversa'
+    | '/innoboat'
     | '/mapeamento-de-processos'
     | '/paineis-eletricos'
     | '/prototipagem'
@@ -191,6 +203,7 @@ export interface RootRouteChildren {
   DesDeProdutosRoute: typeof DesDeProdutosRoute
   DesDeSoftwareRoute: typeof DesDeSoftwareRoute
   EngReversaRoute: typeof EngReversaRoute
+  InnoboatRoute: typeof InnoboatRoute
   MapeamentoDeProcessosRoute: typeof MapeamentoDeProcessosRoute
   PaineisEletricosRoute: typeof PaineisEletricosRoute
   PrototipagemRoute: typeof PrototipagemRoute
@@ -250,6 +263,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EngReversaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/innoboat': {
+      id: '/innoboat'
+      path: '/innoboat'
+      fullPath: '/innoboat'
+      preLoaderRoute: typeof InnoboatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mapeamento-de-processos': {
       id: '/mapeamento-de-processos'
       path: '/mapeamento-de-processos'
@@ -303,6 +323,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesDeProdutosRoute: DesDeProdutosRoute,
   DesDeSoftwareRoute: DesDeSoftwareRoute,
   EngReversaRoute: EngReversaRoute,
+  InnoboatRoute: InnoboatRoute,
   MapeamentoDeProcessosRoute: MapeamentoDeProcessosRoute,
   PaineisEletricosRoute: PaineisEletricosRoute,
   PrototipagemRoute: PrototipagemRoute,
