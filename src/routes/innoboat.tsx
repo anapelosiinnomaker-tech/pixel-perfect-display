@@ -9,7 +9,7 @@ import innoboatPoster from "@/assets/innoboat-video-poster.jpg.asset.json";
 import { cn } from "@/lib/utils";
 
 const VIDEO_URL = "https://res.cloudinary.com/i1pdbo6b/video/upload/V%C3%ADdeo_Innoboat_Final.mp4";
-const PHOTO = "/images/innoboat/innoboat-praia.png";
+const PHOTO = "/images/innoboat/innomaker-praia.png";
 const SCHEME = "/images/innoboat/innoboat-visao-geral.png";
 
 export const Route = createFileRoute("/innoboat")({
