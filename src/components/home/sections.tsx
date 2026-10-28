@@ -13,7 +13,7 @@ export function Hero() {
             <br />
             <span className="text-primary">Soluções</span> sob medida.
           </h1>
-          <div className="animate-rise mt-10 grid gap-8 border-t border-line-dark pt-8 sm:grid-cols-[1fr_auto] sm:items-end" style={{ animationDelay: "260ms" }}>
+          <div className="animate-rise mt-10 grid gap-8 pt-8 sm:grid-cols-[1fr_auto] sm:items-end" style={{ animationDelay: "260ms" }}>
             <p className="max-w-md text-base leading-relaxed sm:text-lg text-on-graphite-muted">
               Integramos <strong className="font-medium text-on-graphite">engenharia, processos e tecnologia</strong> para desenvolver soluções de acordo com as necessidades de cada projeto.
             </p>
