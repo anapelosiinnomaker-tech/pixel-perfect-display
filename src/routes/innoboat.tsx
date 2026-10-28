@@ -7,6 +7,8 @@ import { ProductReveal } from "@/components/products/ProductReveal";
 import { WHATSAPP_URL } from "@/content/site";
 import innoboatPoster from "@/assets/innoboat-video-poster.jpg.asset.json";
 import { cn } from "@/lib/utils";
+import { Sun, Navigation, Waves, ChartNoAxesCombined } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const VIDEO_URL = "https://res.cloudinary.com/i1pdbo6b/video/upload/V%C3%ADdeo_Innoboat_Final.mp4";
 const PHOTO = "/images/innoboat/innomaker-praia.png";
@@ -70,7 +72,7 @@ function Hero() {
           </div>
           <div className="absolute -bottom-6 left-4 grid grid-cols-3 divide-x divide-line-dark border border-line-dark bg-graphite sm:left-8">
             {["Elétrico", "Solar", "Remoto"].map((t) => (
-              <span key={t} className="eyebrow px-4 py-3 text-on-graphite sm:px-6">{t}</span>
+              <span key={t} className="eyebrow flex items-center justify-center px-4 py-3 text-center text-on-graphite sm:px-6">{t}</span>
             ))}
           </div>
         </div>
@@ -81,10 +83,38 @@ function Hero() {
 
 /* ---------- Como funciona ---------- */
 const steps = [
-  { n: "01", t: "Energia", d: "Painéis solares carregam as baterias." },
-  { n: "02", t: "Navegação", d: "Propulsão elétrica, controlada a distância." },
-  { n: "03", t: "Coleta", d: "Sondas acopladas medem a água e o fundo." },
-  { n: "04", t: "Dados", d: "Informações chegam em tempo real ao dashboard." },
+  {
+    n: "01", t: "Energia", d: "Painéis solares carregam as baterias.", icon: Sun,
+    details: [
+      { title: "Geração solar", text: "Fixados no convés, os painéis solares geram energia para alimentar os sistemas da embarcação." },
+      { title: "Armazenamento", text: "O pack de baterias armazena o excedente de energia gerado pelos painéis solares." },
+      { title: "Operação sem sol", text: "A energia armazenada pode ser utilizada quando não há incidência de raios solares, ampliando o tempo de operação." },
+    ],
+  },
+  {
+    n: "02", t: "Navegação", d: "Propulsão elétrica, controlada a distância.", icon: Navigation,
+    details: [
+      { title: "Controle remoto", text: "O Innoboat é controlado remotamente, sem necessidade de pessoas a bordo para realizar o monitoramento." },
+      { title: "Estrutura de catamarã", text: "Dois cascos paralelos são ligados pelo convés, que também acomoda os equipamentos da embarcação." },
+      { title: "Cobertura do ambiente", text: "Por se deslocar pelo sistema hídrico, o barco pode monitorar diversos trechos de rios, lagos, baías e regiões costeiras." },
+    ],
+  },
+  {
+    n: "03", t: "Coleta", d: "Sensores acoplados medem a água e o fundo.", icon: Waves,
+    details: [
+      { title: "Sensores acopláveis", text: "A estrutura sob os painéis solares permite acomodar e acoplar sensores do cliente em um sistema plug and play." },
+      { title: "Qualidade da água", text: "Sensores multiparamétricos permitem avaliar as condições físico-químicas da água durante o monitoramento." },
+      { title: "Batimetria e varredura", text: "A estrutura também permite acoplar equipamentos como sensores multifeixe, LIDAR e sonar de varredura lateral, conforme a aplicação." },
+    ],
+  },
+  {
+    n: "04", t: "Dados", d: "Informações chegam em tempo real ao dashboard.", icon: ChartNoAxesCombined,
+    details: [
+      { title: "Informações do ambiente", text: "O Innoboat realiza análises e coleta dados sobre os ecossistemas aquáticos para o monitoramento da qualidade da água, batimetria e varredura." },
+      { title: "Visualização em tempo real", text: "Os dados coletados são transmitidos para um dashboard, permitindo acompanhar as condições do sistema hídrico analisado." },
+      { title: "Apoio à gestão", text: "As informações contribuem para a gestão dos recursos hídricos e apoiam os órgãos responsáveis na tomada de decisões com mais agilidade." },
+    ],
+  },
 ];
 
 function HowItWorks() {
@@ -97,17 +127,45 @@ function HowItWorks() {
             Do sol ao dado, <span className="text-primary">sem combustível.</span>
           </h2>
         </ProductReveal>
-        <ol className="relative mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
-          <div className="absolute left-0 right-0 top-[7px] hidden h-px bg-border lg:block" />
-          {steps.map((s, i) => (
-            <ProductReveal key={s.n} className="relative lg:pr-8">
-              <span className={cn("relative block h-[15px] w-[15px] rounded-full border-2 border-primary bg-background", i === steps.length - 1 && "bg-primary")} />
-              <span className="mt-6 block font-mono text-sm text-primary">{s.n}</span>
-              <h3 className="mt-2 text-xl font-bold uppercase">{s.t}</h3>
-              <p className="mt-2 max-w-[16rem] text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-            </ProductReveal>
+        <Tabs defaultValue="01" className="mt-12 sm:mt-16">
+          <TabsList aria-label="Como funciona o Innoboat" className="grid h-auto grid-cols-2 gap-3 rounded-none bg-transparent p-0 sm:grid-cols-4">
+            {steps.map(({ n, t, icon: Icon }) => (
+              <TabsTrigger
+                key={n}
+                value={n}
+                className="group min-h-28 min-w-0 flex-col gap-3 whitespace-normal rounded-sm border border-border bg-background px-3 py-5 text-foreground shadow-none transition-colors duration-200 hover:border-[#40A83A]/60 hover:bg-[#40A83A]/5 focus-visible:ring-[#40A83A] data-[state=active]:border-[#40A83A] data-[state=active]:bg-[#40A83A]/10 data-[state=active]:text-[#40A83A] data-[state=active]:shadow-none motion-reduce:transition-none"
+              >
+                <Icon aria-hidden="true" className="h-6 w-6" strokeWidth={1.5} />
+                <span className="text-sm font-bold uppercase tracking-wide sm:text-base">{t}</span>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          {steps.map(({ n, t, d, details, icon: Icon }) => (
+            <TabsContent
+              key={n}
+              value={n}
+              className="mt-5 rounded-sm border border-border border-l-[3px] border-l-[#40A83A] bg-secondary/50 p-6 data-[state=active]:animate-in data-[state=active]:fade-in-0 data-[state=active]:duration-200 motion-reduce:animate-none sm:p-8"
+            >
+              <div className="flex items-start gap-4 sm:gap-6">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-sm bg-[#40A83A]/10 text-[#40A83A]">
+                  <Icon aria-hidden="true" className="h-6 w-6" strokeWidth={1.5} />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-xl font-bold uppercase">{t}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">{d}</p>
+                </div>
+              </div>
+              <dl className="mt-6 grid gap-6 border-t border-border pt-6 lg:grid-cols-3 lg:gap-8">
+                {details.map(({ title, text }) => (
+                  <div key={title}>
+                    <dt className="text-sm font-bold uppercase tracking-wide">{title}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</dd>
+                  </div>
+                ))}
+              </dl>
+            </TabsContent>
           ))}
-        </ol>
+        </Tabs>
       </Container>
     </section>
   );
@@ -117,10 +175,10 @@ function HowItWorks() {
 type Hotspot = { id: string; x: number; y: number; title: string; text: string };
 const hotspots: Hotspot[] = [
   { id: "solar", x: 50, y: 52, title: "Painéis solares", text: "Cobrem o convés e carregam as baterias que alimentam todo o sistema." },
-  { id: "portico", x: 72, y: 17, title: "Pórtico de equipamentos", text: "Estrutura elevada que suporta os equipamentos de comunicação usados na operação remota." },
+  { id: "portico", x: 72, y: 17, title: "Câmera 360º e conexão via Starlink", text: "Visão panorâmica do entorno e conectividade via satélite para acompanhar a operação remotamente, mesmo em locais afastados da infraestrutura de rede convencional." },
   { id: "propulsor", x: 95, y: 63, title: "Propulsão elétrica", text: "Motor elétrico submerso: navegação silenciosa, sem combustíveis fósseis." },
   { id: "cascos", x: 18, y: 58, title: "Dois cascos", text: "Estrutura de catamarã que garante estabilidade sobre a água." },
-  { id: "modulos", x: 67, y: 59, title: "Estrutura modular", text: "Permite acoplar diferentes sondas conforme a aplicação: qualidade da água, batimetria ou varredura." },
+  { id: "modulos", x: 67, y: 59, title: "Estrutura modular", text: "Permite acoplar diferentes sensores conforme a aplicação: qualidade da água, batimetria ou varredura." },
 ];
 
 function Diagram() {
@@ -190,7 +248,7 @@ function Diagram() {
 
 /* ---------- O que monitora ---------- */
 const measures = [
-  { t: "Qualidade da água", d: "Parâmetros coletados por sondas acopladas ao barco." },
+  { t: "Qualidade da água", d: "Parâmetros coletados por sensores acoplados ao barco." },
   { t: "Batimetria", d: "Leitura da profundidade e do relevo do fundo." },
   { t: "Varredura", d: "Mapeamento sistemático da área navegada." },
 ];
@@ -267,7 +325,7 @@ const differentials = [
   { k: "Energia solar", v: "Painéis e baterias: autonomia sem combustíveis fósseis." },
   { k: "Propulsão elétrica", v: "Navegação silenciosa e sem emissões." },
   { k: "Controle remoto", v: "Operado à distância: menos risco para as equipes e menor custo operacional." },
-  { k: "Estrutura modular", v: "Sondas acopláveis conforme a aplicação." },
+  { k: "Estrutura modular", v: "Sensores acopláveis conforme a aplicação." },
   { k: "Dados em tempo real", v: "Resultados disponíveis em um dashboard durante a operação." },
 ];
 
