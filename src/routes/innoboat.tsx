@@ -53,7 +53,6 @@ function Hero() {
       <div className="tech-grid pointer-events-none absolute inset-0 opacity-40" />
       <Container className="relative grid gap-12 pb-20 pt-32 lg:grid-cols-12 lg:items-end lg:pb-24 lg:pt-40">
         <div className="lg:col-span-5">
-          <Eyebrow className="text-on-graphite-muted">Conheça o Innoboat</Eyebrow>
           <h1 className="animate-rise mt-8 text-[clamp(2.25rem,5vw,4.25rem)] font-extrabold uppercase leading-[0.95]" style={{ animationDelay: "120ms" }}>
             A água, lida <span className="text-primary">em tempo real.</span>
           </h1>
