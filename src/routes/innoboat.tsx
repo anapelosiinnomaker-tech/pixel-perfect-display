@@ -124,8 +124,8 @@ const hotspots: Hotspot[] = [
 ];
 
 function Diagram() {
-  const [active, setActive] = useState(hotspots[0].id);
-  const current = hotspots.find((h) => h.id === active)!;
+  const [active, setActive] = useState("solar");
+  const current = hotspots.find((h) => h.id === active) ?? hotspots[0]!;
   return (
     <section id="esquema" className="relative scroll-mt-20 overflow-hidden bg-secondary">
       <div className="tech-grid-light pointer-events-none absolute inset-0" />
