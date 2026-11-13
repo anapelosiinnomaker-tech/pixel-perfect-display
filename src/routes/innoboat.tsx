@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { Sun, Navigation, Waves, ChartNoAxesCombined } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
-const VIDEO_URL = "https://res.cloudinary.com/i1pdbo6b/video/upload/V%C3%ADdeo_Innoboat_Final.mp4";
+const VIDEO_URL = "https://res.cloudinary.com/ee8r3zrz/video/upload/V%C3%ADdeo_Site_Final_Atualizado.mp4";
 const PHOTO = "/images/innoboat/innomaker-praia.png";
 const SCHEME = "/images/innoboat/innoboat-visao-geral.png";
 
