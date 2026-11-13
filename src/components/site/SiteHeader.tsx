@@ -21,28 +21,36 @@ export function SiteHeader() {
         scrolled || open ? "border-b border-line-dark bg-graphite/90 backdrop-blur-md" : "bg-transparent",
       )}
     >
-      <Container className="flex h-18 items-center justify-between py-5">
+      <Container className="flex h-18 items-center justify-between gap-6 py-5">
         <a href="/" aria-label="Innomaker — início">
           <Wordmark tone="dark" />
         </a>
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-10">
           {nav.map((n) => (
             <a key={n.label} href={n.href} className="text-sm text-on-graphite-muted transition-colors hover:text-on-graphite">
               {n.label}
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-sm bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-on-graphite hover:text-graphite sm:inline-flex"
+            className="hidden whitespace-nowrap rounded-sm bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-on-graphite hover:text-graphite sm:inline-flex"
           >
             Fale conosco
           </a>
+          <a
+            href="http://scan.innomaker.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden whitespace-nowrap rounded-sm bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-on-graphite hover:text-graphite sm:inline-flex"
+          >
+            Área do cliente
+          </a>
           <button
-            className="text-on-graphite md:hidden"
+            className="text-on-graphite lg:hidden"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             onClick={() => setOpen((v) => !v)}
           >
@@ -51,7 +59,7 @@ export function SiteHeader() {
         </div>
       </Container>
       {open && (
-        <Container className="flex flex-col gap-1 pb-6 md:hidden">
+        <Container className="flex flex-col gap-1 pb-6 lg:hidden">
           {nav.map((n) => (
             <a key={n.label} href={n.href} className="border-b border-line-dark py-3 text-on-graphite">
               {n.label}
@@ -59,6 +67,9 @@ export function SiteHeader() {
           ))}
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="mt-4 rounded-sm bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground">
             Fale conosco
+          </a>
+          <a href="http://scan.innomaker.com.br/" target="_blank" rel="noopener noreferrer" className="mt-4 rounded-sm bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground">
+            Área do cliente
           </a>
         </Container>
       )}
